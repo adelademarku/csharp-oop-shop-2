@@ -21,16 +21,23 @@ namespace charpShop_2
         //Stato
 
 
-        public Prodotto( string nome, string descrizione, double prezzo, int iva)
+        public Prodotto( string nome,  double prezzo, int iva)
         {
             
+            this.nome = nome;
+            
+            this.prezzo = prezzo;
+            this.iva = iva;
+        }
+
+        public Prodotto(string nome,string descrizione, double prezzo, int iva)
+        {
+
             this.nome = nome;
             this.descrizione = descrizione;
             this.prezzo = prezzo;
             this.iva = iva;
         }
-
-
 
         // GETTERS
 
@@ -83,41 +90,48 @@ namespace charpShop_2
             return randumNumero;
         }
 
+      
         private double SetPrezzoIva()
         {
-            if (iva == 10)
-            {
-                this.prezzo = prezzo - (prezzo * 0.1);
-            }
-            else if (iva == 4)
-            {
-                return this.prezzo = prezzo - (prezzo * 0.04);
-            }
-            else if (iva == 22)
-            {
-                return this.prezzo = prezzo - (prezzo * 0.22);
-            }
-            return prezzo;
+            double prezzoIVA = (this.prezzo + (this.prezzo * this.iva) / 100);
+            prezzoIVA = Math.Round(prezzoIVA, 2);
+            return prezzoIVA;
 
         }
 
-        public static float ToSingle(double value)
+
+        public void SetPrezzo(double prezzo)
         {
-            return (float)value;
+            if (prezzo > 0)
+            {
+                this.prezzo = prezzo;
+            }
+            else
+            {
+                Console.WriteLine("Il prezzo non può avere un valore negativo!");
+            }
+        }
+
+        public string GetNomeEsteso() 
+        { 
+            string codiceStringa = this.codice.ToString();
+            codiceStringa = codiceStringa.PadLeft(8, '0');
+            return codiceStringa + this.nome;
         }
 
 
         //Metodi di servizio 
 
 
-        public void StampaProdotto()
+        public virtual void StampaProdotto()
         {
             Console.WriteLine("Codice: " + SetMain());
             Console.WriteLine("Nome: " + nome);
+            Console.WriteLine("Il codice NomeEsteso è: " + this.GetNomeEsteso());
             Console.WriteLine("Descrizione: " + descrizione);
-            Console.WriteLine("Prezzo: " + prezzo + "£ ");
+            Console.WriteLine("Prezzo: " + prezzo + "euro ");
             Console.WriteLine("Iva: " + iva + " %");
-            Console.WriteLine("Prezzo con iva: " + SetPrezzoIva() + "£ ");
+            Console.WriteLine("Prezzo con iva: " + SetPrezzoIva() + "euro ");
         }
 
 
