@@ -16,3 +16,7 @@ using System.Runtime.ConstrainedExecution;
 Acqua Levissima = new Acqua("Levissima",7.9,1500,true,0.88,22 );
 
 Levissima.StampaProdotto();
+
+SacchettiDiFrutta Misto = new SacchettiDiFrutta("Misto", 3.5, 4, string[]frutta= {"mela","pera","pesca"};);
+
+Misto.StampaProdotto();

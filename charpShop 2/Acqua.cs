@@ -118,8 +118,8 @@ namespace charpShop_2
 
         public int SvuotaTuttalAcqua (int litri)
         {
-            int contenutolitrisvuotato = contenutolitri - litri;
-            return contenutolitrisvuotato;
+            this.contenutolitri = contenutolitri - litri;
+            return contenutolitri;
         }
 
         //Metodo pubblico
