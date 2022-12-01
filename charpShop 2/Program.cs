@@ -19,6 +19,13 @@ Levissima.StampaProdotto();
 
 string[] frutta = { "mela", "pera", "banana" };
 
-SacchettiDiFrutta Misto = new SacchettiDiFrutta("Misto", 3.5, 4, frutta);
-Misto.StampaProdotto();
+SacchettiDiFrutta misto = new SacchettiDiFrutta("Misto", 3.5, 4, frutta);
+misto.StampaProdotto();
 
+Elettrodomestico lavatrice = new Elettrodomestico("Lavatrice", 300, 22);
+
+lavatrice.StampaProdotto();
+
+CiboInScattola tonno = new CiboInScattola("Tonno", 1.55, 10);
+
+tonno.StampaProdotto();
